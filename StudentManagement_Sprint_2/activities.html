@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Activities</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="page.css">
+</head>
+<body class="bg-light">
+  <div class="container mt-5 p-5 bg-white rounded shadow">
+    <h2 class="text-center text-primary mb-4">Monthly Activities</h2>
+
+    <div class="mb-3 text-center">
+      <label class="form-label">Select Subject:</label>
+      <select id="subjectSelect" class="form-select w-50 mx-auto" onchange="showActivities()">
+        <option value="">-- Select Subject --</option>
+        <option value="Maths">Maths</option>
+        <option value="Science">Science</option>
+        <option value="English">English</option>
+      </select>
+    </div>
+
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Activity</th>
+          <th>Subject</th>
+        </tr>
+      </thead>
+      <tbody id="activityTable"></tbody>
+    </table>
+
+    <div class="text-center">
+      <a href="welcome.html" class="btn btn-secondary px-4">Back</a>
+    </div>
+  </div>
+
+  <script>
+    const activities = [
+      { id: 1, activity: "Create project file on tables between 12 to 19", subject: "Maths" },
+      { id: 2, activity: "Draw solar system model", subject: "Science" },
+      { id: 3, activity: "Write essay on Environment", subject: "English" },
+      { id: 4, activity: "Solve algebra equations", subject: "Maths" },
+      { id: 5, activity: "Perform chemical reaction demo", subject: "Science" }
+    ];
+
+    function showActivities() {
+      const subject = document.getElementById('subjectSelect').value;
+      const tableBody = document.getElementById('activityTable');
+      tableBody.innerHTML = "";
+
+      const filtered = activities.filter(act => act.subject === subject);
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="3">No activities found.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(act => {
+        const row = `<tr><td>${act.id}</td><td>${act.activity}</td><td>${act.subject}</td></tr>`;
+        tableBody.innerHTML += row;
+      });
+    }
+  </script>
+</body>
+</html>
