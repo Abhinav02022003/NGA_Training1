@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  color: #2f3640;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #273c75;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+section {
+  width: 45%;
+  background: #ffffff;
+  padding: 15px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.post, .todo {
+  background: #f1f2f6;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
