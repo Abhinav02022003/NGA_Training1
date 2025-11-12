@@ -1,0 +1,21 @@
+User fills the Add Book form → enters book details and clicks Submit.
+
+The AddBookForm component calls the action creator → BookActions.addBook(payload).
+
+That action creator uses Dependency Injection — it already has access to the Dispatcher and API (booksApi), which were passed from index.js when the app started.
+
+The action first dispatches an event → BOOK_ADD_STARTED.
+
+The Dispatcher sends that event to every listener (especially the Store).
+
+The Store receives it, marks loading = true, and notifies all components (like Home) that something changed.
+
+The Action then makes an API call (POST /books) to actually add the book.
+
+When the server responds with success, the action dispatches another event → BOOK_ADD_SUCCESS (along with the new book data).
+
+The Store handles this new action by adding that book to its internal list and setting loading = false.
+
+The Store emits another change — components like Home re-render automatically with the updated book list.
+
+All this happens without refreshing the page — that’s the SPA (Single Page Application) behavior.

@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "id": "52c0",
+      "title": "Bahubali",
+      "author": "Rajmauli",
+      "price": "1000"
+    },
+    {
+      "id": "eacc",
+      "title": "NGA_Training",
+      "author": "Parth Sir",
+      "price": "1200"
+    }
+  ]
+}
